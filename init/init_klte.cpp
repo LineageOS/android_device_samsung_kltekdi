@@ -57,10 +57,10 @@ void init_target_properties()
 
     std::string bootloader = property_get("ro.bootloader");
 
-    property_set("ro.build.fingerprint", "samsung/SCL23/SCL23:4.4.2/KOT49H/SCL23KDU1AND1:user/release-keys");
-    property_set("ro.build.description", "kltekdi-user 4.4.2 KOT49H SCL23KDU1AND1 release-keys");
+    property_set("ro.build.fingerprint", "KDDI/SCL23/SCL23:6.0.1/MMB29M/SCL23KDU1DPH3:user/release-keys");
+    property_set("ro.build.description", "kltekdi-user 6.0.1 MMB29M SCL23KDU1DPH3 release-keys");
     property_set("ro.product.model", "SCL23");
-    property_set("ro.product.device", "kltekdi");
+    property_set("ro.product.device", "SCL23");
     property_set("telephony.sms.pseudo_multipart", "1");
     cdma_properties("1", "44054", "KDDI");
 
