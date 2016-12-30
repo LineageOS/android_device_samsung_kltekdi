@@ -7,4 +7,4 @@ $(call inherit-product, vendor/cm/config/nfc_enhanced.mk)
 $(call inherit-product, device/samsung/kltekdi/full_kltekdi.mk)
 
 PRODUCT_DEVICE := kltekdi
-PRODUCT_NAME := cm_kltekdi
+PRODUCT_NAME := lineage_kltekdi
