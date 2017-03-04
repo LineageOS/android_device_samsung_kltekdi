@@ -57,8 +57,8 @@ void init_target_properties()
 
     std::string bootloader = property_get("ro.bootloader");
 
-    property_set("ro.build.fingerprint", "KDDI/SCL23/SCL23:6.0.1/MMB29M/SCL23KDU1DPH3:user/release-keys");
-    property_set("ro.build.description", "kltekdi-user 6.0.1 MMB29M SCL23KDU1DPH3 release-keys");
+    property_set("ro.build.fingerprint", "KDDI/SCL23/SCL23:6.0.1/MMB29M/SCL23KDU1DQA4:user/release-keys");
+    property_set("ro.build.description", "kltekdi-user 6.0.1 MMB29M SCL23KDU1DQA4 release-keys");
     property_set("ro.product.model", "SCL23");
     property_set("ro.product.device", "SCL23");
     property_set("telephony.sms.pseudo_multipart", "1");
