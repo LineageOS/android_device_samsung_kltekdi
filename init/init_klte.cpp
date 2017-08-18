@@ -1,6 +1,6 @@
 /*
    Copyright (c) 2013, The Linux Foundation. All rights reserved.
-   Copyright (c) 2017, The LineageOS Project. All rights reserved.
+   Copyright (c) 2017-2018, The LineageOS Project. All rights reserved.
 
    Redistribution and use in source and binary forms, with or without
    modification, are permitted provided that the following conditions are
@@ -31,12 +31,15 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-#include "vendor_init.h"
+#include <android-base/properties.h>
+
 #include "property_service.h"
+#include "vendor_init.h"
 #include "log.h"
-#include "util.h"
 
 #include "init_msm8974.h"
+
+using android::base::GetProperty;
 
 void cdma_properties(char const *default_cdma_sub,
         char const *operator_numeric, char const *operator_alpha)
@@ -51,11 +54,11 @@ void cdma_properties(char const *default_cdma_sub,
 
 void init_target_properties()
 {
-    std::string platform = property_get("ro.board.platform");
+    std::string platform = GetProperty("ro.board.platform", "");
     if (platform != ANDROID_TARGET)
         return;
 
-    std::string bootloader = property_get("ro.bootloader");
+    std::string bootloader = GetProperty("ro.bootloader", "");
 
     property_override("ro.build.fingerprint", "KDDI/SCL23/SCL23:6.0.1/MMB29M/SCL23KDU1DQA4:user/release-keys");
     property_override("ro.build.description", "kltekdi-user 6.0.1 MMB29M SCL23KDU1DQA4 release-keys");
@@ -64,7 +67,8 @@ void init_target_properties()
     property_set("telephony.sms.pseudo_multipart", "1");
     cdma_properties("1", "44054", "KDDI");
 
-    std::string device = property_get("ro.product.device");
-    INFO("Found bootloader id %s setting build properties for %s device\n", bootloader.c_str(), device.c_str());
+    std::string device = GetProperty("ro.product.device", "");
+    LOG(INFO) << "Found bootloader id " << bootloader <<  " setting build properties for "
+	    << device <<  " device" << std::endl;
 }
 
