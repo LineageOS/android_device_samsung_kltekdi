@@ -1,17 +1,3 @@
-# NFC
-# vendor/firmware/bcm2079xB4_firmware.ncd
-# vendor/firmware/bcm2079xB4_pre_firmware.ncd
-# vendor/firmware/bcm2079xB5_firmware.ncd
-# vendor/firmware/bcm2079xB5_pre_firmware.ncd
-
-# Radio
-bin/efsks
-bin/ks
-bin/qcks
-bin/qmuxd
-bin/rfs_access
-bin/rild
-bin/rmt_storage
-lib/libril.so
-lib/libsec-ril.so
-vendor/lib/libril-qcril-hook-oem.so
+# Radio - pinned to G900FXXS1BPCL_G900FOXA1BOJ1_BTU
+lib/libril.so|b6e91eb2388c246e6336b53f995cd70ec03faebe
+lib/libsec-ril.so|6fec4ada4110704fb4215b63d2a1acdbcc881938
