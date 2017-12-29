@@ -23,6 +23,9 @@ $(call inherit-product-if-exists, vendor/samsung/kltekdi/kltekdi-vendor.mk)
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 
+# Fingerprint
+$(call inherit-product, device/samsung/klte-common/fingerprint/product.mk)
+
 # NFC
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/libnfc-brcm.conf:system/etc/libnfc-brcm.conf \
