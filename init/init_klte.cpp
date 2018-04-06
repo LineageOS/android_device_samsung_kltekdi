@@ -38,8 +38,19 @@
 
 #include "init_msm8974.h"
 
+void set_rild_libpath(char const *variant)
+{
+    std::string libpath("/system/vendor/lib/libsec-ril.");
+    libpath += variant;
+    libpath += ".so";
+
+    property_override("rild.libpath", libpath.c_str());
+}
+
 void cdma_properties(char const *default_cdma_sub,
-        char const *operator_numeric, char const *operator_alpha)
+        char const *operator_numeric,
+        char const *operator_alpha,
+        char const *rild_lib_variant)
 {
     property_set("ril.subscription.types", "NV,RUIM");
     property_set("ro.cdma.home.operator.numeric", operator_numeric);
@@ -47,6 +58,7 @@ void cdma_properties(char const *default_cdma_sub,
     property_set("ro.telephony.default_cdma_sub", default_cdma_sub);
     property_set("ro.telephony.default_network", "10");
     property_set("telephony.lteOnCdmaDevice", "1");
+    set_rild_libpath(rild_lib_variant);
 }
 
 void init_target_properties()
@@ -57,12 +69,14 @@ void init_target_properties()
 
     std::string bootloader = property_get("ro.bootloader");
 
-    property_override("ro.build.fingerprint", "KDDI/SCL23/SCL23:6.0.1/MMB29M/SCL23KDU1DQA4:user/release-keys");
-    property_override("ro.build.description", "kltekdi-user 6.0.1 MMB29M SCL23KDU1DQA4 release-keys");
-    property_override("ro.product.model", "SCL23");
-    property_override("ro.product.device", "SCL23");
-    property_set("telephony.sms.pseudo_multipart", "1");
-    cdma_properties("1", "44054", "KDDI");
+    if (bootloader.find("SCL23") == 0) {
+        property_override("ro.build.fingerprint", "KDDI/SCL23/SCL23:6.0.1/MMB29M/SCL23KDU1DQA4:user/release-keys");
+        property_override("ro.build.description", "kltekdi-user 6.0.1 MMB29M SCL23KDU1DQA4 release-keys");
+        property_override("ro.product.model", "SCL23");
+        property_override("ro.product.device", "SCL23");
+        property_set("telephony.sms.pseudo_multipart", "1");
+        cdma_properties("1", "44054", "KDDI", "kdi");
+    }
 
     std::string device = property_get("ro.product.device");
     INFO("Found bootloader id %s setting build properties for %s device\n", bootloader.c_str(), device.c_str());

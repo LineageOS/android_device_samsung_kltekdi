@@ -1,2 +1,0 @@
-# Radio - pinned to SCL23KDU1COI2_SCL23KDI1COI2_KDI
-lib/libsec-ril.so:vendor/lib/libsec-ril.so|6fec4ada4110704fb4215b63d2a1acdbcc881938
