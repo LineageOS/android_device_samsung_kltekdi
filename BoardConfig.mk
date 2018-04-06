@@ -28,9 +28,6 @@ include $(COMMON_PATH)/fingerprint/board.mk
 TARGET_INIT_VENDOR_LIB := libinit_msm8974
 TARGET_LIBINIT_MSM8974_DEFINES_FILE := device/samsung/kltekdi/init/init_klte.cpp
 
-# NFC
-BOARD_NFC_CHIPSET := pn547
-
 # Radio/RIL
 include $(COMMON_PATH)/radio/single/board.mk
 
