@@ -16,7 +16,7 @@
 # inherit from common klte
 include device/samsung/klte-common/BoardConfigCommon.mk
 
-TARGET_OTA_ASSERT_DEVICE := kltekdi,klte
+TARGET_OTA_ASSERT_DEVICE := kltedcm,kltekdi,klte
 
 # Kernel
 TARGET_KERNEL_CONFIG := lineage_kltekdi_defconfig

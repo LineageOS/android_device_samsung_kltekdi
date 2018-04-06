@@ -65,6 +65,14 @@ void cdma_properties(char const *default_cdma_sub,
     set_rild_libpath(rild_lib_variant);
 }
 
+void gsm_properties(char const *rild_lib_variant)
+{
+    set_rild_libpath(rild_lib_variant);
+
+    property_set("ro.telephony.default_network", "9");
+    property_set("telephony.lteOnGsmDevice", "1");
+}
+
 void init_target_properties()
 {
     std::string platform = GetProperty("ro.board.platform", "");
@@ -73,7 +81,13 @@ void init_target_properties()
 
     std::string bootloader = GetProperty("ro.bootloader", "");
 
-    if (bootloader.find("SCL23") == 0) {
+    if (bootloader.find("SC04F") == 0) {
+        property_override_dual("ro.build.fingerprint", "ro.vendor.build.fingerprint", "samsung/SC-04F/SC-04F:6.0.1/MMB29M/SC04FOMU1XPH3:user/release-keys");
+        property_override("ro.build.description", "kltedcm-user 6.0.1 MMB29M SC04FOMU1XPH3 release-keys");
+        property_override_dual("ro.product.model", "ro.vendor.product.model", "SC-04F");
+        property_override_dual("ro.product.device", "ro.vendor.product.device", "SC-04F");
+        gsm_properties("dcm");
+    } else if (bootloader.find("SCL23") == 0) {
         property_override_dual("ro.build.fingerprint", "ro.vendor.build.fingerprint", "KDDI/SCL23/SCL23:6.0.1/MMB29M/SCL23KDU1DQA4:user/release-keys");
         property_override("ro.build.description", "kltekdi-user 6.0.1 MMB29M SCL23KDU1DQA4 release-keys");
         property_override_dual("ro.product.model", "ro.vendor.product.model", "SCL23");

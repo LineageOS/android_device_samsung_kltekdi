@@ -1,0 +1,2 @@
+# Radio - pinned to SC04FOMU1WOJ1_SC04FDCM1WOJ1_DCM
+lib/libsec-ril.so:vendor/lib/libsec-ril.dcm.so|070dd28fe2129231ed774ebbbb136e852479dde2
