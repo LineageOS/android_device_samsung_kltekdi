@@ -1,5 +1,5 @@
 # Copyright (C) 2014-2016 The CyanogenMod Project
-# Copyright (C) 2017-2018 The LineageOS Project
+# Copyright (C) 2017-2019 The LineageOS Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -16,7 +16,7 @@
 # inherit from common klte
 include device/samsung/klte-common/BoardConfigCommon.mk
 
-TARGET_OTA_ASSERT_DEVICE := kltekdi,klte
+TARGET_OTA_ASSERT_DEVICE := kltedcm,kltekdi,klte
 
 # Kernel
 TARGET_KERNEL_CONFIG := lineage_kltekdi_defconfig
