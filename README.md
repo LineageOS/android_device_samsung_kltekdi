@@ -1,8 +1,8 @@
 Copyright 2014 - The CyanogenMod Project
 
-Copyright 2017 - The LineageOS Project
+Copyright 2017-2019 - The LineageOS Project
 
-Device configuration for Samsung Galaxy S5 Japan variant (SCL23).
+Device configuration for Samsung Galaxy S5 Japan variants (SC-04F, SCL23).
 ========================================
 
 Basic   | Specification List
