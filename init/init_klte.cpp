@@ -50,12 +50,21 @@ void init_target_properties()
 
     std::string bootloader = GetProperty("ro.bootloader", "");
 
-    property_override_dual("ro.build.fingerprint", "ro.vendor.build.fingerprint", "KDDI/SCL23/SCL23:6.0.1/MMB29M/SCL23KDU1DQA4:user/release-keys");
-    property_override("ro.build.description", "kltekdi-user 6.0.1 MMB29M SCL23KDU1DQA4 release-keys");
-    property_override_dual("ro.product.model", "ro.product.vendor.model", "SCL23");
-    property_override_dual("ro.product.device", "ro.product.vendor.device", "SCL23");
-    property_set("telephony.sms.pseudo_multipart", "1");
-    cdma_properties("KDDI", "44054", "1", "10", "kdi");
+    if (bootloader.find("SC04F") == 0) {
+        property_override_dual("ro.build.fingerprint", "ro.vendor.build.fingerprint", "samsung/SC-04F/SC-04F:6.0.1/MMB29M/SC04FOMU1XQH1:user/release-keys");
+        property_override("ro.build.description", "kltedcm-user 6.0.1 MMB29M SC04FOMU1XQH1 release-keys");
+        property_override_dual("ro.product.model", "ro.product.vendor.model", "SC-04F");
+        property_override_dual("ro.product.device", "ro.product.vendor.device", "SC-04F");
+        gsm_properties("9", "dcm");
+    }
+    else if (bootloader.find("SCL23") == 0) {
+        property_override_dual("ro.build.fingerprint", "ro.vendor.build.fingerprint", "KDDI/SCL23/SCL23:6.0.1/MMB29M/SCL23KDU1DQA4:user/release-keys");
+        property_override("ro.build.description", "kltekdi-user 6.0.1 MMB29M SCL23KDU1DQA4 release-keys");
+        property_override_dual("ro.product.model", "ro.product.vendor.model", "SCL23");
+        property_override_dual("ro.product.device", "ro.product.vendor.device", "SCL23");
+        property_set("telephony.sms.pseudo_multipart", "1");
+        cdma_properties("KDDI", "44054", "1", "10", "kdi");
+    }
 
     std::string device = GetProperty("ro.product.device", "");
     LOG(ERROR) << "Found bootloader id " << bootloader <<  " setting build properties for "
