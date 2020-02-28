@@ -1,6 +1,6 @@
 /*
    Copyright (c) 2013, The Linux Foundation. All rights reserved.
-   Copyright (c) 2017-2018, The LineageOS Project. All rights reserved.
+   Copyright (c) 2017-2020, The LineageOS Project. All rights reserved.
 
    Redistribution and use in source and binary forms, with or without
    modification, are permitted provided that the following conditions are
@@ -42,17 +42,6 @@
 using android::base::GetProperty;
 using android::init::property_set;
 
-void cdma_properties(char const *default_cdma_sub,
-        char const *operator_numeric, char const *operator_alpha)
-{
-    property_set("ril.subscription.types", "NV,RUIM");
-    property_set("ro.cdma.home.operator.numeric", operator_numeric);
-    property_set("ro.cdma.home.operator.alpha", operator_alpha);
-    property_set("ro.telephony.default_cdma_sub", default_cdma_sub);
-    property_set("ro.telephony.default_network", "10");
-    property_set("telephony.lteOnCdmaDevice", "1");
-}
-
 void init_target_properties()
 {
     std::string platform = GetProperty("ro.board.platform", "");
@@ -66,7 +55,7 @@ void init_target_properties()
     property_override_dual("ro.product.model", "ro.product.vendor.model", "SCL23");
     property_override_dual("ro.product.device", "ro.product.vendor.device", "SCL23");
     property_set("telephony.sms.pseudo_multipart", "1");
-    cdma_properties("1", "44054", "KDDI");
+    cdma_properties("KDDI", "44054", "1", "10", "kdi");
 
     std::string device = GetProperty("ro.product.device", "");
     LOG(ERROR) << "Found bootloader id " << bootloader <<  " setting build properties for "
