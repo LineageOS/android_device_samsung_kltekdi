@@ -1,5 +1,5 @@
 # Copyright (C) 2014-2016 The CyanogenMod Project
-# Copyright (C) 2017-2019 The LineageOS Project
+# Copyright (C) 2017-2020 The LineageOS Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -25,8 +25,7 @@ TARGET_KERNEL_CONFIG := lineage_kltekdi_defconfig
 include $(COMMON_PATH)/fingerprint/board.mk
 
 # Init
-TARGET_INIT_VENDOR_LIB := libinit_msm8974
-TARGET_LIBINIT_MSM8974_DEFINES_FILE := device/samsung/kltekdi/init/init_klte.cpp
+TARGET_INIT_VENDOR_LIB := libinit_kltekdi
 
 # Radio/RIL
 include $(COMMON_PATH)/radio/single/board.mk
