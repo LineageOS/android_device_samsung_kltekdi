@@ -66,6 +66,7 @@ void init_target_properties()
     property_override_dual("ro.product.model", "ro.product.vendor.model", "SCL23");
     property_override_dual("ro.product.device", "ro.product.vendor.device", "SCL23");
     property_set("telephony.sms.pseudo_multipart", "1");
+    property_override("rild.libpath", "/system/vendor/lib/libsec-ril.kdi.so"
     cdma_properties("1", "44054", "KDDI");
 
     std::string device = GetProperty("ro.product.device", "");
