@@ -31,12 +31,9 @@
 #include <android-base/logging.h>
 #include <android-base/properties.h>
 
-#include "property_service.h"
-
 #include "init_msm8974.h"
 
 using android::base::GetProperty;
-using android::init::property_set;
 
 void vendor_load_properties()
 {
@@ -56,7 +53,7 @@ void vendor_load_properties()
         set_ro_product_prop("fingerprint", "KDDI/SCL23/SCL23:6.0.1/MMB29M/SCL23KDU1DQA4:user/release-keys");
         set_ro_product_prop("model", "SCL23");
         set_ro_product_prop("name", "SCL23");
-        property_set("telephony.sms.pseudo_multipart", "1");
+        property_override("telephony.sms.pseudo_multipart", "1");
         cdma_properties("KDDI", "44054", "1", "10", "kdi");
     }
 
