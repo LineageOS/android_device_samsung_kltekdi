@@ -1,2 +1,2 @@
 # Radio - pinned to haxxed SC04FOMU1XQH1_SC04FDCM1XQH1_DCM
-lib/libsec-ril.so:vendor/lib/libsec-ril.dcm.so|2d346034f3d6360eba668e8e89fed6e97b313c35
+lib/libsec-ril.so:vendor/lib/libsec-ril.dcm.so|c30e046dfd6e737dbfafd1266205da8c850b7c2c

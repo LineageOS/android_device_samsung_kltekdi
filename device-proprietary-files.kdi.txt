@@ -1,2 +1,2 @@
 # Radio - pinned to haxxed SCL23KDU1DPH3_SCL23KDI1DPH3_KDI
-lib/libsec-ril.so:vendor/lib/libsec-ril.kdi.so|6e018b6c57e74061fad985d0ea9824368dbf139c
+lib/libsec-ril.so:vendor/lib/libsec-ril.kdi.so|aba748bf65a4e7dc3fff7ab419e0d80be9688bc5
